@@ -5,6 +5,7 @@ import com.bridgelabz.greetingapp.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,5 +25,9 @@ public class GreetingService {
     }
     public Optional<GreetingData> getmsgbyid(int id){
         return greetingRepository.findById(id);
+    }
+
+    public List<GreetingData> getallData() {
+        return greetingRepository.findAll();
     }
 }
