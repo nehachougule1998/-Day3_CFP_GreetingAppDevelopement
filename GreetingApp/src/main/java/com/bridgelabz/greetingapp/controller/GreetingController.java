@@ -59,5 +59,11 @@ public class GreetingController {
         Optional<GreetingData> response = greetingService.getmsgbyid(id);
         return response;
     }
+    //UC6
+    @GetMapping("/getallData")
+    public List<GreetingData> getallData(){
+        List<GreetingData> data=greetingService.getallData();
+        return data;
+    }
 
 }
