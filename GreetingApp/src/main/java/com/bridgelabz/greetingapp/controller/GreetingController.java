@@ -6,6 +6,7 @@ import com.bridgelabz.greetingapp.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.List;
 import java.util.Optional;
 
@@ -65,5 +66,11 @@ public class GreetingController {
         List<GreetingData> data=greetingService.getallData();
         return data;
     }
+    //UC7
+    @PutMapping("/edit/{id}")
+    public GreetingData edit(@RequestBody GreetingData user,@PathVariable Integer id) {
+        return greetingService.editData(user,id);
+    }
+
 
 }
