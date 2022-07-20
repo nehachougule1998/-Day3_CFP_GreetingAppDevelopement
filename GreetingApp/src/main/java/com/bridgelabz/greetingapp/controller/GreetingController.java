@@ -1,14 +1,20 @@
 package com.bridgelabz.greetingapp.controller;
 
 import com.bridgelabz.greetingapp.model.GreetingData;
+import com.bridgelabz.greetingapp.repository.GreetingRepository;
 import com.bridgelabz.greetingapp.service.GreetingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class GreetingController {
     @Autowired
     GreetingService greetingService;
+    @Autowired
+    GreetingRepository greetingRepository;
     //UC1
     @GetMapping("/getmessage")
     public String getmessage(){
@@ -29,7 +35,6 @@ public class GreetingController {
         String message=greetingService.getmessage();
         return message;
     }
-
     //UC3
     @GetMapping("/hello")
     public String sayPosting(@RequestParam(required = false) String firstName, @RequestParam(required = false) String lastName) {
@@ -41,12 +46,18 @@ public class GreetingController {
         }
         return greetingService.sayHelloByName(firstName, lastName);
     }
-
     //UC4
     @PostMapping("/getdata")
     public GreetingData getdata(@RequestBody GreetingData greetingData){
         GreetingData greetingData1 = greetingService.postData(greetingData);
         return greetingData1;
+    }
+
+    //UC5
+    @GetMapping("/getbyid/{id}")
+    public Optional<GreetingData> getmsgbyid (@PathVariable int id){
+        Optional<GreetingData> response = greetingService.getmsgbyid(id);
+        return response;
     }
 
 }

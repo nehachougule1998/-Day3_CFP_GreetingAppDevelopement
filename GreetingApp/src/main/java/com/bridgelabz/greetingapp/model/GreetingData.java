@@ -6,9 +6,8 @@ import javax.persistence.Id;
 
 @Entity
 public class GreetingData {
-
-   String firstName;
-   String lastName;
+    String firstName;
+    String lastName;
     @Id
     @GeneratedValue
     private int id;
@@ -16,7 +15,6 @@ public class GreetingData {
     public GreetingData(GreetingData greetingData) {
         this.firstName = greetingData.firstName;
         this.lastName = greetingData.lastName;
-
     }
     public GreetingData() {
 
@@ -41,7 +39,6 @@ public class GreetingData {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     public Integer getId() {
         return id;
