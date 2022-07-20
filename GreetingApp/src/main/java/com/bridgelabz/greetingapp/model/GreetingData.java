@@ -13,6 +13,7 @@ public class GreetingData {
     public GreetingData(GreetingData greetingData) {
         this.firstName = greetingData.firstName;
         this.lastName = greetingData.lastName;
+
     }
     public GreetingData(String firstName, String lastName) {
 
@@ -20,6 +21,11 @@ public class GreetingData {
 
     public GreetingData() {
 
+    }
+    public GreetingData(GreetingData greetingData, Integer id) {
+        this.firstName = greetingData.firstName;
+        this.lastName = greetingData.lastName;
+        this.id=id;
     }
 
     public String getFirstName() {
